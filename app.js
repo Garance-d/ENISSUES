@@ -5,11 +5,38 @@ const port = 3000;
 app.set("views", "./views");
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
+app.use(express.static("public"));
+app.use(express.urlencoded({extends : false}));
 
-    //res.render("index", { villes: villes });
-    res.render("index", { "/" });
+let tickets = [{
+  id: 1,
+  titre : "Ticket 1",
+  description : "Description du ticket 1",
+  date_creation : "2022 12:00",
+  auteur : "x",
+  description : "xxxxxxxxxx",
+  etat : "xxxxxxxx",
+}
+  {
+    id: 2,
+    titre : "Ticket 2",
+    description : "Description du ticket 2",
+    date_creation : "2023 11:00",
+    auteur : "y",
+    description : "xxxxxxxxxx",
+    etat : "xxxxxxxx",
+  }
+];
+
+/* Route */
+
+app.get(["/", "/tickets"] (req, res) => {
+
+    res.render("index");
   });
+
+listen.port ("index")
+
 
 
   app.post("index", (req, res) => {

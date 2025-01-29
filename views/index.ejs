@@ -54,7 +54,15 @@
                   </select>
                 </div>
               </div>
-
+              <%= ticket.forEach(ticket => { %>
+              <div>
+                <p><a href="/ticket/<%= ticket.id %"><%= ticket.titre %></a></p> 
+                 <p><%= ticket.auteur %></p>
+                 <p><%= ticket.date_creation %></p>
+                 <p><%= ticket.description %></p>
+                 <p><%= ticket.etat %></p>
+              </div>
+              <% }) %>
               <div class="p-2 w-full">
                 <div class="relative">
                   <label for="message" class="leading-7 text-sm text-gray-400">Message</label>
